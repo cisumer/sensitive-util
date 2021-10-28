@@ -1,4 +1,4 @@
-package org.cisumer.sensitive.annotation;
+package org.cisumer.sensitive.web;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.cisumer.sensitive.annotation.SensitiveInfo;
 import org.cisumer.sensitive.util.SensitiveUtil;
 import org.slf4j.LoggerFactory;
 

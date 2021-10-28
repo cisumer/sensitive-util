@@ -36,8 +36,6 @@ public class SensitiveUtil {
         }
         return sb.toString();
     }
-
-
     /**
      * 只显示最后一个汉字，其他隐藏为星号，比如：**伦
      */
@@ -62,36 +60,32 @@ public class SensitiveUtil {
 
 
     /**
-     * 显示前六位, 四位，其他隐藏。共计18位或者15位，比如：140107*******1234
+     * 显示前六位, 后四位，其他隐藏。比如：140101*******1234
      */
     public static String idCardNum(String id) {
         return desValue(id, 6, 4, "*");
     }
 
-
     /**
-     * 后四位，其他隐藏，比如 ****1234
+     * 座机号码，显示后四位，其他隐藏，比如 ****1234
      */
     public static String fixedPhone(String num) {
         return desValue(num, 0, 4, "*");
     }
 
-
     /**
-     * 前三位，后四位，其他隐藏，比如186****0590
+     * 手机号码，显示前三位、后四位，其他隐藏，比如186****0590
      */
     public static String mobilePhone(String num) {
         return desValue(num, 3, 4, "*");
     }
 
-
     /**
-     * 只显示到地区，不显示详细地址，比如：太原市小店区****
+     * 地址，只显示到地区，不显示详细地址，比如：太原市小店区****
      */
     public static String address(String address) {
         return desValue(address, 6, 0, "*");
     }
-
 
     /**
      * 邮箱前缀仅显示第一个字母，前缀其他隐藏，用星号代替，@及后面的地址显示，比如：p**@163.com
@@ -111,14 +105,12 @@ public class SensitiveUtil {
         return desValue(cardNum, 6, 4, "*");
     }
 
-
     /**
      * 前两位后一位，比如：晋A****5
      */
     public static String carNumber(String carNumber) {
         return desValue(carNumber, 2, 1, "*");
     }
-
 
     /**
      * 全部字符都用*代替，比如：******

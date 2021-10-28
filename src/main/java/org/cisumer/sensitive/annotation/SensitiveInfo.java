@@ -4,8 +4,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import org.cisumer.sensitive.SensitiveType;
 /**
  * 用于待脱敏的字段，配置字段脱敏类型或使用自定义脱敏规则
  * @author github.com/cisumer
