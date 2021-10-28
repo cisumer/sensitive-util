@@ -1,0 +1,165 @@
+package org.cisumer.sensitive.util;
+
+import org.cisumer.sensitive.annotation.SensitiveInfo;
+import org.springframework.util.StringUtils;
+
+/**
+ * 数据脱敏工具类，实现简单的脱敏规则匹配
+ * @author github.com/cisumer
+ *
+ */
+public class SensitiveUtil {
+
+    /**
+     * 脱敏规则
+     * @Param origin 原始字符串
+     * @param prefixNoMaskLen 左侧需要保留几位明文字段
+     * @param suffixNoMaskLen 右侧需要保留几位明文字段
+     * @param maskStr 用于遮罩的字符串, 如'*'
+     * @Return 脱敏后结果
+     */
+    public static String desValue(String origin, int prefixNoMaskLen, int suffixNoMaskLen, String maskStr) {
+        if (StringUtils.isEmpty(origin)) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0, n = origin.length(); i < n; i++) {
+            if (i < prefixNoMaskLen) {
+                sb.append(origin.charAt(i));
+                continue;
+            }
+            if (i > (n - suffixNoMaskLen - 1)) {
+                sb.append(origin.charAt(i));
+                continue;
+            }
+            sb.append(maskStr);
+        }
+        return sb.toString();
+    }
+
+
+    /**
+     * 只显示最后一个汉字，其他隐藏为星号，比如：**伦
+     */
+    public static String chineseName(String fullName) {
+        return desValue(fullName, 0, 1, "*");
+    }
+    /**
+     * 显示姓和最后一个字，其他隐藏为星号，比如：张*伦
+     */
+    public static String chineseNameMid(String fullName) {
+    	if(fullName.length()>2)
+    		return desValue(fullName, 1, 1, "*");
+    	else
+    		return desValue(fullName, 1, 0, "*");
+    }
+    /**
+     * 显示姓和最后一个字，其他隐藏为星号，比如：张**
+     */
+    public static String chineseNameFirst(String fullName) {
+    	return desValue(fullName, 1, 0, "*");
+    }
+
+
+    /**
+     * 显示前六位, 四位，其他隐藏。共计18位或者15位，比如：140107*******1234
+     */
+    public static String idCardNum(String id) {
+        return desValue(id, 6, 4, "*");
+    }
+
+
+    /**
+     * 后四位，其他隐藏，比如 ****1234
+     */
+    public static String fixedPhone(String num) {
+        return desValue(num, 0, 4, "*");
+    }
+
+
+    /**
+     * 前三位，后四位，其他隐藏，比如186****0590
+     */
+    public static String mobilePhone(String num) {
+        return desValue(num, 3, 4, "*");
+    }
+
+
+    /**
+     * 只显示到地区，不显示详细地址，比如：太原市小店区****
+     */
+    public static String address(String address) {
+        return desValue(address, 6, 0, "*");
+    }
+
+
+    /**
+     * 邮箱前缀仅显示第一个字母，前缀其他隐藏，用星号代替，@及后面的地址显示，比如：p**@163.com
+     */
+    public static String email(String email) {
+        int index = email.indexOf('@');
+        if (index <= 1) {
+            return email;
+        }
+        return desValue(email, 1, email.length()-index, "*");
+    }
+
+    /**
+     * 前六位，后四位，其他用星号隐藏每位1个星号，比如：622260**********1234
+     */
+    public static String bankCard(String cardNum) {
+        return desValue(cardNum, 6, 4, "*");
+    }
+
+
+    /**
+     * 前两位后一位，比如：晋A****5
+     */
+    public static String carNumber(String carNumber) {
+        return desValue(carNumber, 2, 1, "*");
+    }
+
+
+    /**
+     * 密码的全部字符都用*代替，比如：******
+     */
+    public static String password(String password) {
+    	return desValue(password, 0, 0, "*");
+    }
+
+    /**
+     * 密钥除了最后三位，全部都用*代替，比如：***xdS 脱敏后长度为6，如果明文长度不足三位，则按实际长度显示，剩余位置补*
+     */
+    public static String key(String key) {
+        return desValue(key, 0, 3, "*");
+    }
+
+    public static String convert(String value,SensitiveInfo info){
+    	switch (info.value()) {
+    	case CUSTOM:
+    		return desValue(value, info.prefixLen(), info.suffixLen(), info.mask());
+		case CHINESE_NAME:
+			return chineseName(value);
+		case CHINESE_NAME_MID:
+			return chineseNameMid(value);
+		case CHINESE_NAME_FIRST:
+			return chineseNameFirst(value);
+		case ADDRESS:
+			return address(value);
+		case EMAIL:
+			return email(value);
+		case BANK_CARD:
+			return bankCard(value);
+		case MOBILE_PHONE:
+			return mobilePhone(value);
+		case FIXED_PHONE:
+			return fixedPhone(value);
+		case ID_CARD:
+			return idCardNum(value);
+		case PASSWORD:
+			return password(value);
+		default:
+			return value;//如果没配置则默认全部脱敏
+		}
+    }
+}
