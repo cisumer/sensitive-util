@@ -4,7 +4,6 @@
   <artifactId>sensitive-util</artifactId>
   <version>1.0-SNAPSHOT</version>
   <properties>
-  	<nexus.url>http://172.17.0.39/repository</nexus.url>
   	<java.version>1.8</java.version>
   </properties>
   <dependencies>
@@ -50,17 +49,4 @@
 		</plugin>
 	</plugins>
   </build>
-  	<distributionManagement>
-		<repository>
-			<id>rk-releases</id>
-			<name>releases</name>
-			<url>${nexus.url}/maven-releases/</url>
-			<uniqueVersion>true</uniqueVersion>
-		</repository>
-		<snapshotRepository>
-			<id>rk-snapshots</id>
-			<name>snapshots</name>
-			<url>${nexus.url}/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
