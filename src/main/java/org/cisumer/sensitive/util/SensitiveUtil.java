@@ -121,9 +121,9 @@ public class SensitiveUtil {
 
 
     /**
-     * 密码的全部字符都用*代替，比如：******
+     * 全部字符都用*代替，比如：******
      */
-    public static String password(String password) {
+    public static String all(String password) {
     	return desValue(password, 0, 0, "*");
     }
 
@@ -157,7 +157,9 @@ public class SensitiveUtil {
 		case ID_CARD:
 			return idCardNum(value);
 		case PASSWORD:
-			return password(value);
+			return all(value);
+		case SECURE_KEY:
+			return key(value);
 		default:
 			return value;//如果没配置则默认全部脱敏
 		}
