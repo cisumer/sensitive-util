@@ -51,6 +51,10 @@ public enum SensitiveType {
 	   */
 	  BANK_CARD,
 	  /**
+	   * 秘钥，显示后三位
+	   */
+	  SECURE_KEY,
+	  /**
 	   * 默认值，原始输出
 	   */
 	  DEFAULT,
