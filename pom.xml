@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.cisumer</groupId>
   <artifactId>sensitive-util</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <properties>
   	<nexus.url>http://172.17.0.39/repository</nexus.url>
   	<java.version>1.8</java.version>
@@ -25,16 +25,6 @@
       	<artifactId>spring-boot-starter</artifactId>
       	<version>2.1.17.RELEASE</version>
       	<scope>compile</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.github.houbb</groupId>
-        <artifactId>deep-copy-api</artifactId>
-        <version>0.0.1</version>
-    </dependency>
-    <dependency>
-    	<groupId>com.github.houbb</groupId>
-        <artifactId>deep-copy-fastjson</artifactId>
-        <version>0.0.1</version>
     </dependency>
   </dependencies>
   <build>
