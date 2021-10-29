@@ -1,4 +1,4 @@
-package org.cisumer.sensitive.annotation;
+package org.github.cisumer.sensitive.annotation;
 
 /**
  * 定义脱敏类型即规则，支持自定义

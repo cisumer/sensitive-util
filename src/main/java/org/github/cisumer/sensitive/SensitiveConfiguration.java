@@ -1,7 +1,7 @@
-package org.cisumer.sensitive;
+package org.github.cisumer.sensitive;
 
 import org.aopalliance.intercept.Joinpoint;
-import org.cisumer.sensitive.web.SensitiveInterceptor;
+import org.github.cisumer.sensitive.web.SensitiveInterceptor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

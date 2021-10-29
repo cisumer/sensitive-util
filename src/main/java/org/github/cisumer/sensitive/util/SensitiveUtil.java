@@ -1,6 +1,6 @@
-package org.cisumer.sensitive.util;
+package org.github.cisumer.sensitive.util;
 
-import org.cisumer.sensitive.annotation.SensitiveInfo;
+import org.github.cisumer.sensitive.annotation.SensitiveInfo;
 import org.springframework.util.StringUtils;
 
 /**
