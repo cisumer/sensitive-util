@@ -2,10 +2,10 @@
 数据脱敏工具包，提供注解用于配置脱敏字段。
 基于SpringBoot2.1.17.RELEASE版本，使用AOP在@RestController所有方法或@ResponseBody注解的方法处理返回值。
 ###
-1. 引入依赖（暂未上传至中央仓库）
+1. 引入依赖（暂未上传至中央仓库,私服获取）
 ```
 	<dependency>
-		<groupId>org.cisumer</groupId>
+		<groupId>org.github.cisumer</groupId>
   		<artifactId>sensitive-util</artifactId>
   		<version>1.0-SNAPSHOT</version>
 	</dependency>
