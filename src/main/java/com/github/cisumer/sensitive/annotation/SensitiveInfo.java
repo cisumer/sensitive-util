@@ -1,4 +1,4 @@
-package org.github.cisumer.sensitive.annotation;
+package com.github.cisumer.sensitive.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

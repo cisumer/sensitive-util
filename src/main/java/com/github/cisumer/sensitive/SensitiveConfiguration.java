@@ -1,7 +1,6 @@
-package org.github.cisumer.sensitive;
+package com.github.cisumer.sensitive;
 
 import org.aopalliance.intercept.Joinpoint;
-import org.github.cisumer.sensitive.web.SensitiveInterceptor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -9,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.Ordered;
+
+import com.github.cisumer.sensitive.web.SensitiveInterceptor;
 /**
  * 数据脱敏，使用aop切入controller，处理返回值
  * @author github.com/cisumer

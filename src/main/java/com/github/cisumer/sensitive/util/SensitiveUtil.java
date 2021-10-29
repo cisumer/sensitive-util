@@ -1,7 +1,8 @@
-package org.github.cisumer.sensitive.util;
+package com.github.cisumer.sensitive.util;
 
-import org.github.cisumer.sensitive.annotation.SensitiveInfo;
 import org.springframework.util.StringUtils;
+
+import com.github.cisumer.sensitive.annotation.SensitiveInfo;
 
 /**
  * 数据脱敏工具类，实现简单的脱敏规则匹配

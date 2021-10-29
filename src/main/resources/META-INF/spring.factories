@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  org.github.cisumer.sensitive.SensitiveConfiguration
+  com.github.cisumer.sensitive.SensitiveConfiguration

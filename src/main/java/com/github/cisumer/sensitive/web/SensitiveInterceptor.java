@@ -1,4 +1,4 @@
-package org.github.cisumer.sensitive.web;
+package com.github.cisumer.sensitive.web;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -9,9 +9,10 @@ import java.util.List;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.github.cisumer.sensitive.annotation.SensitiveInfo;
-import org.github.cisumer.sensitive.util.SensitiveUtil;
 import org.slf4j.LoggerFactory;
+
+import com.github.cisumer.sensitive.annotation.SensitiveInfo;
+import com.github.cisumer.sensitive.util.SensitiveUtil;
 
 @SuppressWarnings({"rawtypes","unchecked"})
 public class SensitiveInterceptor implements MethodInterceptor{
@@ -61,7 +62,7 @@ public class SensitiveInterceptor implements MethodInterceptor{
 			String sensitiveValue=SensitiveUtil.convert((String)f.get(result), ann);
 			f.set(result, sensitiveValue);
 		} catch (Exception e) {
-			LoggerFactory.getLogger("org.github.cisumer.sensitive").warn("{}字段{}脱敏失败！",result.getClass(),f.getName());
+			LoggerFactory.getLogger("com.github.cisumer.sensitive").warn("{}字段{}脱敏失败！",result.getClass(),f.getName());
 		}
 	}
 	
