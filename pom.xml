@@ -11,7 +11,6 @@
   	</developer>
   </developers>
   <properties>
-  	<nexus.url>http://172.17.0.39/repository</nexus.url>
   	<java.version>1.8</java.version>
   </properties>
   <dependencies>
