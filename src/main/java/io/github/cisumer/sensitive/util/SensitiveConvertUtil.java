@@ -1,4 +1,4 @@
-package com.github.cisumer.sensitive.util;
+package io.github.cisumer.sensitive.util;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -18,8 +18,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.StringUtils;
 
-import com.github.cisumer.sensitive.annotation.SensitiveInfo;
-import com.github.cisumer.sensitive.annotation.SensitiveType;
+import io.github.cisumer.sensitive.annotation.SensitiveInfo;
+import io.github.cisumer.sensitive.annotation.SensitiveType;
 
 /**
  * 数据脱敏工具类，实现简单的脱敏规则匹配

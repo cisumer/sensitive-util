@@ -1,13 +1,18 @@
-package com.github.cisumer.sensitive.web;
+package io.github.cisumer.sensitive.web;
 
 import java.lang.reflect.Method;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
-import com.github.cisumer.sensitive.annotation.SensitiveInfo;
-import com.github.cisumer.sensitive.util.SensitiveConvertUtil;
+import io.github.cisumer.sensitive.annotation.SensitiveInfo;
+import io.github.cisumer.sensitive.util.SensitiveConvertUtil;
 
+/**
+ * 用于处理Controller返回值的AOP拦截器
+ * @author github.com/cisumer
+ *
+ */
 @SuppressWarnings("rawtypes")
 public class SensitiveInterceptor implements MethodInterceptor{
 	public Object invoke(MethodInvocation i)throws Throwable{

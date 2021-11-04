@@ -1,8 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.cisumer</groupId>
+  <groupId>io.github.cisumer</groupId>
   <artifactId>sensitive-util</artifactId>
   <version>1.1-SNAPSHOT</version>
+  <name>${project.groupId}:${project.artifactId}</name>
+  <developers>
+  	<developer>
+  		<name>cisumer</name>
+  		<url>https://github.com/cisumer/sensitive-util</url>
+  	</developer>
+  </developers>
   <properties>
   	<nexus.url>http://172.17.0.39/repository</nexus.url>
   	<java.version>1.8</java.version>
@@ -43,24 +50,34 @@
 				<execution>
 					<id>attach-sources</id>
 					<goals>
-						<goal>jar</goal>
+						<goal>jar-no-fork</goal>
 					</goals>
 				</execution>
 			</executions>
 		</plugin>
 	</plugins>
   </build>
+   <licenses>
+     <license>
+       <name>The Apache License, Version 2.0</name>
+       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+     </license>
+   </licenses>
+   <scm>
+   	<connection>scm:git:https://github.com/cisumer/sensitive-util.git</connection>
+   	<developerConnection>scm:git:https://github.com/cisumer/sensitive-util.git</developerConnection>
+   	<url>https://github.com/cisumer/sensitive-util</url>
+   	<tag>1.1</tag>
+   </scm>
   	<distributionManagement>
-		<repository>
-			<id>rk-releases</id>
-			<name>releases</name>
-			<url>${nexus.url}/maven-releases/</url>
-			<uniqueVersion>true</uniqueVersion>
-		</repository>
+		 <!-- oss.sonatype.org -->
 		<snapshotRepository>
-			<id>rk-snapshots</id>
-			<name>snapshots</name>
-			<url>${nexus.url}/maven-snapshots/</url>
+	      	<id>ossrh</id>
+		    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		<repository>
+		    <id>ossrh</id>
+		    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
 	</distributionManagement>
 </project>

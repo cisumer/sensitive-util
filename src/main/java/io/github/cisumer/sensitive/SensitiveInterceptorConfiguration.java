@@ -1,4 +1,4 @@
-package com.github.cisumer.sensitive;
+package io.github.cisumer.sensitive;
 
 import org.aopalliance.intercept.Joinpoint;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
@@ -10,18 +10,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.Ordered;
 
-import com.github.cisumer.sensitive.web.SensitiveInterceptor;
-
+import io.github.cisumer.sensitive.web.SensitiveInterceptor;
+/**
+ * 数据脱敏自动配置类，使用aop切入controller，处理返回值
+ * @author github.com/cisumer
+ *
+ */
 @Configuration
 @ConditionalOnProperty(name="sensitive.interceptor.enabled",havingValue="true")
 @ConditionalOnClass(Joinpoint.class)
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class SensitiveInterceptorConfiguration {
-	/**
-	 * 数据脱敏，使用aop切入controller，处理返回值
-	 * @author github.com/cisumer
-	 *
-	 */
+
 	@Configuration
 	@ConditionalOnProperty(name="sensitive.interceptor.log.enabled",havingValue="true",matchIfMissing=true)
 	class SensitiveControllerInterceptorConfiguration{
