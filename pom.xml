@@ -2,37 +2,18 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.cisumer</groupId>
   <artifactId>sensitive-util</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <name>${project.groupId}:${project.artifactId}</name>
   <developers>
   	<developer>
   		<name>cisumer</name>
-  		<url>https://github.com/cisumer/sensitive-util</url>
+  		<email>cisumer@qq.com</email>
+  		<url>https://github.com/cisumer</url>
   	</developer>
   </developers>
   <properties>
   	<java.version>1.8</java.version>
   </properties>
-  <dependencies>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>5.1.18.RELEASE</version>
-		<scope>compile</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-aspects</artifactId>
-		<version>5.1.18.RELEASE</version>
-		<scope>compile</scope>
-	</dependency>
-    <dependency>
-      	<groupId>org.springframework.boot</groupId>
-      	<artifactId>spring-boot-starter</artifactId>
-      	<version>2.1.17.RELEASE</version>
-      	<scope>compile</scope>
-    </dependency>
-  </dependencies>
   <build>
 	<plugins>
     	<plugin>
@@ -66,17 +47,37 @@
    	<connection>scm:git:https://github.com/cisumer/sensitive-util.git</connection>
    	<developerConnection>scm:git:https://github.com/cisumer/sensitive-util.git</developerConnection>
    	<url>https://github.com/cisumer/sensitive-util</url>
-   	<tag>1.1</tag>
    </scm>
   	<distributionManagement>
 		 <!-- oss.sonatype.org -->
 		<snapshotRepository>
 	      	<id>ossrh</id>
-		    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
 		    <id>ossrh</id>
-		    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
+	
+  <dependencies>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>5.1.18.RELEASE</version>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aspects</artifactId>
+		<version>5.1.18.RELEASE</version>
+		<scope>compile</scope>
+	</dependency>
+    <dependency>
+      	<groupId>org.springframework.boot</groupId>
+      	<artifactId>spring-boot-starter</artifactId>
+      	<version>2.1.17.RELEASE</version>
+      	<scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>
