@@ -15,11 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.logging.log4j.util.PropertySource.Comparator;
 import org.springframework.beans.BeanUtils;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.StringUtils;
 
 import io.github.cisumer.sensitive.annotation.SensitiveInfo;
-import io.github.cisumer.sensitive.annotation.SensitiveType;
 
 /**
  * 数据脱敏工具类，实现简单的脱敏规则匹配
@@ -31,7 +29,7 @@ public interface SensitiveConvertUtil {
 
     /**
      * 脱敏规则
-     * @Param origin 原始字符串
+     * @param origin 原始字符串
      * @param prefixNoMaskLen 左侧需要保留几位明文字段
      * @param suffixNoMaskLen 右侧需要保留几位明文字段
      * @param maskStr 用于遮罩的字符串, 如'*'
@@ -240,13 +238,7 @@ public interface SensitiveConvertUtil {
 		targets.get().put(o, result);
 		return result;		
 	}
-	@SensitiveInfo(value=SensitiveType.CHINESE_NAME_FIRST)
-	public static void main(String[] args) throws Exception{
-		String[][] a={{"李四狗","李斯丹尼"},{"张三丰","张三"}};
-		String[][] r=(String[][]) clone(a,AnnotationUtils.findAnnotation(SensitiveConvertUtil.class.getMethod("main", args.getClass()), SensitiveInfo.class));
-		System.out.println(Arrays.deepToString(r));
-		System.out.println(Arrays.deepToString(a));
-	}
+
 	/**
 	 * 对象深拷贝，并处理脱敏字段
 	 * @param source

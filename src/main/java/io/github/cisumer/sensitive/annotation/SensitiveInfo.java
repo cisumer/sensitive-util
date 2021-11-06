@@ -14,7 +14,6 @@ import java.lang.annotation.Target;
 public @interface SensitiveInfo {
 	/**
 	 * 脱敏类型
-	 * @return SensitiveType
 	 */
 	SensitiveType value() default SensitiveType.DEFAULT;
 	/**

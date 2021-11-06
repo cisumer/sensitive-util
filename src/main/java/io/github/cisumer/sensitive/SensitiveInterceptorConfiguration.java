@@ -11,19 +11,20 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.Ordered;
 
 import io.github.cisumer.sensitive.web.SensitiveInterceptor;
-/**
- * 数据脱敏自动配置类，使用aop切入controller，处理返回值
- * @author github.com/cisumer
- *
- */
+
 @Configuration
 @ConditionalOnProperty(name="sensitive.interceptor.enabled",havingValue="true")
 @ConditionalOnClass(Joinpoint.class)
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class SensitiveInterceptorConfiguration {
-
+	/**
+	 * 数据脱敏自动配置类，使用aop切入controller，处理返回值<br/>
+	 * sensitive.interceptor.web.enabled=true时开启
+	 * @author github.com/cisumer
+	 *
+	 */
 	@Configuration
-	@ConditionalOnProperty(name="sensitive.interceptor.log.enabled",havingValue="true",matchIfMissing=true)
+	@ConditionalOnProperty(name="sensitive.interceptor.web.enabled",havingValue="true",matchIfMissing=true)
 	class SensitiveControllerInterceptorConfiguration{
 		@Bean
 		public SensitiveInterceptor sensitiveInterceptor(){
@@ -42,19 +43,18 @@ public class SensitiveInterceptorConfiguration {
 		}		
 	}
 	/**
-	 * 数据脱敏，使用aop切入Log，处理参数
+	 * 数据脱敏，使用aop切入Log，处理参数<br/>
+	 * sensitive.interceptor.web.enabled=true时开启
 	 * @author github.com/cisumer
 	 *
 	 */
 	@Configuration
-	@ConditionalOnProperty(name="sensitive.interceptor.web.enabled",havingValue="true",matchIfMissing=true)
+	@ConditionalOnProperty(name="sensitive.interceptor.log.enabled",havingValue="true",matchIfMissing=true)
 	public class SensitiveLogInterceptorConfiguration{
-		@Bean
+//		@Bean
 		public DefaultPointcutAdvisor sensitivePointcutAdvisor(){
 	        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-	        pointcut.setExpression(
-	        		  "within(@org.springframework.web.bind.annotation.RestController *) || "
-	        		+ "@annotation(org.springframework.web.bind.annotation.ResponseBody)" );
+//	        pointcut.setExpression("");
 	        // 配置增强类advisor
 	        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor();
 	        advisor.setPointcut(pointcut);
